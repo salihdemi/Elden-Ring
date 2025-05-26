@@ -6,12 +6,17 @@ using UnityEngine.SceneManagement;
 public class WorldSaveGameManager : MonoBehaviour
 {
     public static WorldSaveGameManager instance;
+
     private void Awake()
     { if (instance == null) { instance = this; } /*else { Destroy(gameObject); } */}
 
 
 
-    [SerializeField] int worldSceneIndex = 1;
+    public int worldSceneIndex = 1;
+    public int GetWorldSceneIndex()
+    {
+        return worldSceneIndex;
+    }
 
     private void Start()
     {

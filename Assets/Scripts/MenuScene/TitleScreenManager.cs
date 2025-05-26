@@ -7,17 +7,19 @@ using TMPro;
 
 public class TitleScreenManager : MonoBehaviour
 {
+    private bool isNetworkStarted;
     [SerializeField] private GameObject pressAnyText;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private Button newGameButton;
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!isNetworkStarted && Input.GetMouseButtonDown(0))
         {
             StartNetworkAsHost();
             pressAnyText.SetActive(false);
             mainMenu.SetActive(true);
             newGameButton.Select();
+            isNetworkStarted = true;
         }
     }
     public void StartNetworkAsHost()
